@@ -1,0 +1,32 @@
+E:\C#\visual studio 2015\Projects\LeaveRequest\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.Common.exe.config
+E:\C#\visual studio 2015\Projects\LeaveRequest\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.Common.exe
+E:\C#\visual studio 2015\Projects\LeaveRequest\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.Common.pdb
+E:\C#\visual studio 2015\Projects\LeaveRequest\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\EntityFramework.dll
+E:\C#\visual studio 2015\Projects\LeaveRequest\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\EntityFramework.SqlServer.dll
+E:\C#\visual studio 2015\Projects\LeaveRequest\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.DataAccess.exe
+E:\C#\visual studio 2015\Projects\LeaveRequest\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.Core.exe
+E:\C#\visual studio 2015\Projects\LeaveRequest\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.DataAccess.pdb
+E:\C#\visual studio 2015\Projects\LeaveRequest\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\EntityFramework.xml
+E:\C#\visual studio 2015\Projects\LeaveRequest\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\EntityFramework.SqlServer.xml
+E:\C#\visual studio 2015\Projects\LeaveRequest\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.Core.pdb
+E:\C#\visual studio 2015\Projects\LeaveRequest\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\obj\Debug\LeaveRequest.ASP.Common.csprojResolveAssemblyReference.cache
+E:\C#\visual studio 2015\Projects\LeaveRequest\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\obj\Debug\LeaveRequest.ASP.Common.exe
+E:\C#\visual studio 2015\Projects\LeaveRequest\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\obj\Debug\LeaveRequest.ASP.Common.pdb
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.Common.exe.config
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.Common.exe
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.Common.pdb
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\EntityFramework.dll
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\EntityFramework.SqlServer.dll
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.DataAccess.exe
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.Core.exe
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.DataAccess.pdb
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.DataAccess.exe.config
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\EntityFramework.xml
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\EntityFramework.SqlServer.xml
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.Core.pdb
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\bin\Debug\LeaveRequest.ASP.Core.exe.config
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\obj\Debug\LeaveRequest.ASP.Common.csprojAssemblyReference.cache
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\obj\Debug\LeaveRequest.ASP.Common.csproj.CoreCompileInputs.cache
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\obj\Debug\LeaveRequest.ASP.Common.csproj.CopyComplete
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\obj\Debug\LeaveRequest.ASP.Common.exe
+D:\Satuin\LeaveRequest.ASP.Micro\LeaveRequest.ASP\LeaveRequest.ASP.Common\obj\Debug\LeaveRequest.ASP.Common.pdb

@@ -1,0 +1,58 @@
+﻿@model LeaveRequest.ASP.BussinessLogic.Service.AdminService
+
+@{
+    ViewBag.Title = "Admin";
+}
+
+<h2>Index</h2>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            Leave Request
+            @*@Html.ActionLink("Leave Request", "Index", "EmployeeLeave", new { area = "" }, new { @class = "navbar-brand" })*@
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Employee", "IndexEmployee", "Admin")</li>
+                <li>@Html.ActionLink("Department", "IndexDepartment", "Admin")</li>
+                <li>@Html.ActionLink("Company", "IndexCompany", "Admin")</li>
+                <li>@Html.ActionLink("LeaveType", "IndexLeaveType", "Admin")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-8">
+        <hr />
+        <table class="table">
+            <tr>
+                <th>
+                    @*@Html.ActionLink("EMPLOYEE", "IndexEmployee")*@
+                    <a href="~/Admin/IndexEmployee" class="btn btn-primary btn-lg">Employee &raquo;</a>
+                </th>
+
+                <th>
+                    @*@Html.ActionLink("DEPARTMENT", "IndexDepartment")*@
+                    <a href="~/Admin/IndexDepartment" class="btn btn-primary btn-lg">Department &raquo;</a>
+                </th>
+
+                <th>
+                    @*@Html.ActionLink("COMPANY", "IndexCompany")*@
+                    <a href="~/Admin/IndexCompany" class="btn btn-primary btn-lg">Company &raquo;</a>
+                </th>
+
+                <th>
+                    @*@Html.ActionLink("LEAVE TYPE", "IndexLeave")*@
+                    <a href="~/Admin/IndexLeave" class="btn btn-primary btn-lg">Leave Type &raquo;</a>
+                </th>
+        </table>
+    </div>
+</div>

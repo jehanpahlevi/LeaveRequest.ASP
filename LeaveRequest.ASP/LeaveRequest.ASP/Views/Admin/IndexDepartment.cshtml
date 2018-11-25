@@ -1,0 +1,130 @@
+﻿@model IEnumerable<LeaveRequest.ASP.DataAccess.Param.DepartmentParam>
+
+@{
+    ViewBag.Title = "IndexDepartment";
+}
+
+<h2>Index Department</h2>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            Leave Request
+            @*@Html.ActionLink("Leave Request", "Index", "EmployeeLeave", new { area = "" }, new { @class = "navbar-brand" })*@
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Employee", "IndexEmployee", "Admin")</li>
+                <li>@Html.ActionLink("Department", "IndexDepartment", "Admin")</li>
+                <li>@Html.ActionLink("Company", "IndexCompany", "Admin")</li>
+                <li>@Html.ActionLink("LeaveType", "IndexLeave", "Admin")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <h4>Department Details</h4>
+        @Html.ActionLink("Input Data", "CreateDepartment")
+        <hr />
+        <table class="table">
+            <tr>
+                <th>
+                    ID
+                </th>
+
+                <th>
+                    Name
+                </th>
+
+                <th>
+                    Company
+                </th>
+
+                <th>
+                    Action
+                </th>
+
+            </tr>
+            @foreach (var department in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelDepartment => department.Id)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelDepartment => department.Name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelDepartment => department.Companies)
+                    </td>
+
+                    <td>
+                        <div class="btn-group">
+                            @Html.ActionLink("Edit", "EditDepartment", new { id = department.Id }) |
+                            @Html.ActionLink("Delete", "DeleteDepartment", new { id = department.Id }) |
+                            <a onclick="check(@department.Id)" class="btn btn-group">Delete</a>
+                            @*<input type="submit" value="Cancel" class="btn btn-default" />*@
+                            @*<a onclick="check(@company.Id)" class="btn btn-default">Cancel</a>*@
+                            @*<a class="btn btn-danger" href="@Url.Action("Edit", new { id = employeeleave.Id })">Cancel</a>*@
+                        </div>
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+@section scripts{
+
+    <script src="~/Content/sweetalert/sweetalert.min.js"></script>
+    <link href="~/Content/sweetalert/sweetalert.css" rel="stylesheet" />
+
+    <script>
+        function check(id) {
+            swal({
+                title: "Are you sure?",
+                text: "Really sure?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD7B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false
+            }, function () {
+                $.ajax({
+                    url: "/Admin/DeleteDepartment/",
+                    data: {
+                        'Id': id
+                    },
+                    type: "POST",
+                    success: function (response) {
+                        swal({
+                            title: "Deleted",
+                            text: "That data has been soft deleted!",
+                        },
+                            function () {
+                                window.location.href = '/Admin/IndexDepartment/';
+                                //setTimeout(function () {
+                                //    location.reload();
+                                //}, 1200);
+                            });
+                    },
+                    error: function (response) {
+                        swal("Oops", "We couldn't connect to the server!", "Error");
+                    }
+                });
+
+            });
+        }
+    </script>
+}

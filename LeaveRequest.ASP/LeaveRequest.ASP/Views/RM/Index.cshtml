@@ -1,0 +1,179 @@
+﻿@model IEnumerable<LeaveRequest.ASP.DataAccess.Param.EmployeeLeaveParam2>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Leave Request", "Index", "EmployeeLeave", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "EmployeeLeave")</li>
+                <li>@Html.ActionLink("Leave Request", "Create", "EmployeeLeave")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <h4>Employee Details</h4>
+        <hr />
+        <table class="table">
+            <tr>
+                <th>
+                    ID
+                </th>
+
+                <th>
+                    Submitted By
+                </th>
+
+                <th>
+                    Leave Days
+                </th>
+
+                <th>
+                    Note
+                </th>
+
+                <th>
+                    Submitted Date
+                </th>
+
+                <th>
+                    Approval Status
+                </th>
+
+                <th>Action</th>
+            </tr>
+            @foreach (var employeeleave in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelEmployeeLeave => employeeleave.Id)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelEmployeeLeave => employeeleave.Name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelEmployeeLeave => employeeleave.LeaveDays)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelEmployeeLeave => employeeleave.Note)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelEmployeeLeave => employeeleave.CreateDate)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelEmployeeLeave => employeeleave.ApprovalStatus)
+                    </td>
+
+                    <td>
+                        <div class="btn-group">
+                            @*<input type="submit" value="Cancel" class="btn btn-default" />*@
+                            <a onclick="check(@employeeleave.Id)" class="btn btn-default">Approve</a>
+                            <a onclick="checkR(@employeeleave.Id)" class="btn btn-default">Rejected</a>
+
+                            @*<a class="btn btn-danger" href="@Url.Action("Edit", new { id = employeeleave.Id })">Cancel</a>*@
+                        </div>
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+@section scripts{
+
+    <script src="~/Content/sweetalert/sweetalert.min.js"></script>
+    <link href="~/Content/sweetalert/sweetalert.css" rel="stylesheet" />
+
+    <script>
+        function check(id) {
+            swal({
+                title: "Are you sure?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD7B55",
+                confirmButtonText: "Yes, approve it!",
+                closeOnConfirm: false
+            }, function () {
+                $.ajax({
+                    url: "/RM/EditAppr/",
+                    data: {
+                        'Id': id
+                    },
+                    type: "POST",
+                    success: function (response) {
+                        swal({
+                            title: "Cancelled",
+                            text: "Leave request has been approved.",
+
+                        },
+                            function () {
+                                window.location.href = '/RM/Index/';
+                                //setTimeout(function () {
+                                //    location.reload();
+                                //}, 1200);
+                            });
+                    },
+                    error: function (response) {
+                        swal("Oops", "We couldn't connect to the server!", "Error");
+                    }
+                });
+            });
+        }
+    </script>
+    <script>
+        function checkR(id) {
+            swal({
+                title: "Are you sure?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD7B55",
+                confirmButtonText: "Yes, Rejected it!",
+                closeOnConfirm: false
+            }, function () {
+                $.ajax({
+                    url: "/RM/EditRjct/",
+                    data: {
+                        'Id': id
+                    },
+                    type: "POST",
+                    success: function (response) {
+                        swal({
+                            title: "Cancelled",
+                            text: "Leave request has been rejected.",
+
+                        },
+                            function () {
+                                window.location.href = '/RM/Index/';
+                                //setTimeout(function () {
+                                //    location.reload();
+                                //}, 1200);
+                            });
+                    },
+                    error: function (response) {
+                        swal("Oops", "We couldn't connect to the server!", "Error");
+                    }
+                });
+            });
+        }
+    </script>
+}

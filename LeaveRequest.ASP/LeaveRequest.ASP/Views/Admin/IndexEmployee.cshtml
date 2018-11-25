@@ -1,0 +1,202 @@
+﻿@model IEnumerable<LeaveRequest.ASP.DataAccess.Param.EmployeeParam>
+
+@{
+    ViewBag.Title = "IndexEmployee";
+}
+
+<h2>Index Employee</h2>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            Leave Request
+            @*@Html.ActionLink("Leave Request", "Index", "EmployeeLeave", new { area = "" }, new { @class = "navbar-brand" })*@
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Employee", "IndexEmployee", "Admin")</li>
+                <li>@Html.ActionLink("Department", "IndexDepartment", "Admin")</li>
+                <li>@Html.ActionLink("Company", "IndexCompany", "Admin")</li>
+                <li>@Html.ActionLink("LeaveType", "IndexLeave", "Admin")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <h4>Employee Details</h4>
+        @Html.ActionLink("Input Data", "CreateEmployee")
+        <hr />
+        <table class="table">
+            <tr>
+                <th>
+                    ID
+                </th>
+
+                <th>
+                    Name
+                </th>
+
+                <th>
+                    Email
+                </th>
+
+                <th>
+                    Phone
+                </th>
+
+                <th>
+                    Join Date
+                </th>
+
+                <th>
+                    Job Title
+                </th>
+
+                <th>
+                    Status
+                </th>
+
+                <th>
+                    Total Childs
+                </th>
+
+                <th>
+                    This Year
+                </th>
+
+                <th>
+                    Last Year
+                </th>
+
+                <th>
+                    Department
+                </th>
+
+                <th>
+                    Manager
+                </th>
+
+                <th>
+                    Action
+                </th>
+
+            </tr>
+            @foreach (var employee in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelEmployee => employee.Id)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelEmployee => employee.Name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelEmployee => employee.Email)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelEmployee => employee.Phone)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelEmployee => employee.JoinDate)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelEmployee => employee.JobTitle)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelEmployee => employee.Status)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelEmployee => employee.TotalChilds)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelEmployee => employee.ThisYear)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelEmployee => employee.LastYear)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelEmployee => employee.Departments)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelEmployee => employee.ManagerId)
+                </td>
+
+                <td>
+                    <div class="btn-group">
+                        @Html.ActionLink("Edit", "EditDepartment", new { id = employee.Id }) |
+                        @Html.ActionLink("Delete", "DeleteDepartment", new { id = employee.Id }) |
+                        <a onclick="check(@employee.Id)" class="btn btn-group">Delete</a>
+                        @*<input type="submit" value="Cancel" class="btn btn-default" />*@
+                        @*<a onclick="check(@company.Id)" class="btn btn-default">Cancel</a>*@
+                        @*<a class="btn btn-danger" href="@Url.Action("Edit", new { id = employeeleave.Id })">Cancel</a>*@
+                    </div>
+                </td>
+
+            </tr>
+            }
+        </table>
+    </div>
+</div>
+
+@section scripts{
+
+    <script src="~/Content/sweetalert/sweetalert.min.js"></script>
+    <link href="~/Content/sweetalert/sweetalert.css" rel="stylesheet" />
+
+    <script>
+        function check(id) {
+            swal({
+                title: "Are you sure?",
+                text: "Really sure?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD7B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false
+            }, function () {
+                $.ajax({
+                    url: "/Admin/DeleteEmployee/",
+                    data: {
+                        'Id': id
+                    },
+                    type: "POST",
+                    success: function (response) {
+                        swal({
+                            title: "Deleted",
+                            text: "That data has been soft deleted!",
+                        },
+                            function () {
+                                window.location.href = '/Admin/IndexEmployee/';
+                                //setTimeout(function () {
+                                //    location.reload();
+                                //}, 1200);
+                            });
+                    },
+                    error: function (response) {
+                        swal("Oops", "We couldn't connect to the server!", "Error");
+                    }
+                });
+
+            });
+        }
+    </script>
+}

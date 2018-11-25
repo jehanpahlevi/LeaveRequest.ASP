@@ -1,0 +1,344 @@
+﻿@model LeaveRequest.ASP.DataAccess.Param.EmployeeLeaveParam
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm())
+{
+@Html.AntiForgeryToken()
+<h2>Leave Request</h2>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Leave Request", "Index", "EmployeeLeave", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "EmployeeLeave")</li>
+                <li>@Html.ActionLink("Leave Request", "Create", "EmployeeLeave")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <h4>Employee Details</h4>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(m => m.EmployeeId, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.EmployeeId, new { @class = "form-control" , @readonly = "readonly" })
+            </div>
+        </div>
+        <hr/>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(m => m.Company, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Company, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(m => m.Department, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Department, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(m => m.JobTitle, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.JobTitle, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+    </div>
+</div>
+    <hr/>
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+<div class="row">
+    <div class="col-md-10">
+        <h4>Leave Request</h4>
+        <div class="row p-t-20">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>From :</label>
+                    @Html.EditorFor(model => model.StartDate,
+         new { htmlAttributes = new { @class = "form-control date-picker", id = "StartDate" } })
+                </div>
+             </div>
+             <div class="col-md-6">
+                <div class="form-group">
+                    <label>To :</label>
+                    @Html.EditorFor(model => model.EndDate,
+         new { htmlAttributes = new { @class = "form-control date-picker", id = "EndDate" } })
+                </div>
+             </div>
+         </div>
+        <hr/>
+            <b>Special Leaves</b>
+        <div class="container">
+            <div class="row p-t-20">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.LeaveType, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.LeaveType, (IEnumerable<SelectListItem>)ViewBag.leavetype,
+                       "Select Special Leave Type (If Any)", new { @class = "form-control col-md-2", id = "idLeaveType" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Days Special</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.DaysSpecial, new { @class = "form-control", id = "daySpecial", Value = "0" })
+                            <text>day(s)</text>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-t-20">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">From :</label>
+                        @Html.EditorFor(model => model.StartDateSpecial,
+         new { htmlAttributes = new { @class = "form-control date-picker" , id="startSpecial"} })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">To :</label>
+                        @Html.EditorFor(model => model.EndDateSpecial,
+         new { htmlAttributes = new { @class = "form-control date-picker", id="endSpecial"} })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+            <div class="row p-t-20">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>This Year Balance</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.ThisYearBefore, new { @class = "form-control" , id="thisYear"})
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Last Year Balance</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.LastYearBefore, new { @class = "form-control", id="lastYear"})
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <hr/>
+            <div class="row p-t-20">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Note, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(m => m.Note, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row p-t-20">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Days to Deduct</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.DeductDays, new { @class = "form-control", id = "deductDays", Value = "0" })
+                            <text>day(s)</text>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Holiday</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.LeaveDays, new { @class = "form-control", id = "leaveDays", Value = "0" })
+                            <text>day(s)</text>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <div class="col-md-5 col-md-12">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var MS_PER_DAY = 24 * 60 * 60 * 1000;
+        var HOLIDAYS = [new Date(2018, 1 - 1, 1).getTime(), new Date(2015, 1 - 1, 26).getTime(),
+                        new Date(2015, 4 - 1, 3).getTime(), new Date(2015, 4 - 1, 6).getTime(),
+                        new Date(2015, 4 - 1, 25).getTime(), new Date(2015, 12 - 1, 25).getTime(),
+                        new Date(2015, 12 - 1, 26).getTime()];
+
+        $.datepicker.setDefaults({
+            beforeShowDay: function (date) {
+                if ($.inArray(date.getTime(), HOLIDAYS) > -1) {
+                    return [false, 'holiday'];
+                }
+                return $.datepicker.noWeekends(date);
+            },
+            dateFormat: 'd M, yy'
+        });
+
+        var select = function (dateStr) {
+            var d1 = $('#StartDate').datepicker('getDate');
+            var d2 = $('#EndDate').datepicker('getDate');
+            
+            var diff = d2-d1;
+            diff = Math.floor(diff / MS_PER_DAY);
+            var work = diff;
+            var d = d1;
+            while (d < d2) {
+                if ((d.getDay() || 7) > 5) { // Sat/Sun
+                    work--;
+                }
+                else if ($.inArray(d.getTime(), HOLIDAYS) > -1) {
+                    work--;
+                }
+                d.setDate(d.getDate() + 1);
+            }
+            if (work > 0) {
+                $('#deductDays').val(work);
+                $('#leaveDays').val(work);
+                var date3 = $('#EndDate').datepicker('getDate');
+                date3.setDate(date3.getDate() + 1);
+                $('#startSpecial').datepicker('option', 'minDate', date3);
+                $('#startSpecial').datepicker('option', 'maxDate', '+1m');
+            }
+
+        }
+        var change = function (dateStr) {
+                var d1 = $('#StartDate').datepicker('getDate');
+                var d2 = $('#EndDate').datepicker('getDate');
+
+                var diff = d2 - d1;
+                diff = Math.floor(diff / MS_PER_DAY);
+                var work = diff;
+                var d = d1;
+                while (d < d2) {
+                    if ((d.getDay() || 7) > 5) { // Sat/Sun
+                        work--;
+                    }
+                    else if ($.inArray(d.getTime(), HOLIDAYS) > -1) {
+                        work--;
+                    }
+                    d.setDate(d.getDate() + 1);
+                }
+                if (work > 0) {
+                    $('#deductDays').val(work);
+                    $('#leaveDays').val(work);
+                    var date3 = $('#EndDate').datepicker('getDate');
+                    date3.setDate(date3.getDate() + 1);
+                    $('#startSpecial').datepicker('option', 'minDate', date3);
+                    $('#startSpecial').datepicker('option', 'maxDate', '+1m');
+                }
+
+            var date2 = $('#StartDate').datepicker('getDate');
+            date2.setDate(date2.getDate() + 7);
+            $('#EndDate').datepicker('setDate', date2);
+            $('#EndDate').datepicker('option', 'minDate', date2.setDate(date2.getDate() - 6));
+            $('#EndDate').datepicker('option', 'maxDate', '+1m');
+        }
+
+        
+
+        var change3 = function () {
+            var date4 = $('#startSpecial').datepicker('getDate');
+            var jum = parseInt(document.getElementById("daySpecial").value);
+            date4.setDate(date4.getDate() + jum);
+            console.log(jum);
+            $('#endSpecial').datepicker('setDate', date4);
+            $('#endSpecial').datepicker('option', 'minDate', date4.setDate(date4.getDate() - jum + 1));
+            $('#endSpecial').datepicker('option', 'maxDate', '+1m');
+        }
+        
+        $('#StartDate').datepicker({ minDate: 0, onSelect : change });
+        $('#EndDate').datepicker({ onSelect: select });
+        //$('#StartDate').change(function () {
+        //    var date2 = $('#StartDate').datepicker('getDate');
+        //    date2.setDate(date2.getDate() + 1);
+        //    $('#EndDate').datepicker('setDate', date2);
+        //});
+        $('#startSpecial').datepicker({ minDate : 0, onSelect: change3 });
+        $('#endSpecial').datepicker({ });
+       
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var Id;
+        $(function () {
+            $('#idLeaveType').change(function () {
+                Id = $('#idLeaveType option:selected').val();
+                
+                $.ajax({
+                    type: "POST",
+                    url: '../EmployeeLeave/GetTypeLeave',
+                    data: { Id: Id },
+                    success: function (data) {
+                        if (data) {
+                           $('#daySpecial').val(data);
+                           var b = parseInt($('#leaveDays').val());
+                           var a = parseInt($('#deductDays').val());
+                           var c = parseInt(document.getElementById("daySpecial").value);
+                           
+                           $('#leaveDays').val(b + c);
+                           if (c == 0) {
+                               $("#startSpecial").datepicker("option", "disabled", true);
+                               $("#endSpecial").datepicker("option", "disabled", true);
+                               $('#leaveDays').val(a);
+                           } else {
+                               $("#startSpecial").datepicker("option", "disabled", false);
+                               $("#endSpecial").datepicker("option", "disabled", false);
+                           }
+
+                        }
+                        var c = parseInt(document.getElementById("daySpecial").value);
+                        
+                    },
+                    error: function (response) {
+                        alert("Oops,We couldn't connect to the server");
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+}
